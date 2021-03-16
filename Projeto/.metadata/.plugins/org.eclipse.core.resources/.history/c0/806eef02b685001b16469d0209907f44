@@ -1,0 +1,28 @@
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.net.ssl.HttpsURLConnection;
+import java.io.IOException;
+import javax.servlet.*;
+
+public class Register extends HttpServlet {
+@Override
+protected void doPost(HttpServletRequest req,HttpServletResponse resp)
+throws ServletException,IOException{
+	super.doPost(req, resp);
+	
+	String e=req.getParameter("email");
+	String p=req.getParameter("password");
+	
+	
+	//user and password set and get
+	Users user=new Users();
+	user.setEmail(e);
+	user.setPassword(p);
+	
+	RegisterIMP rimp=new RegisterIMP();
+	rimp.registerUser(user);
+	
+}
+
+}
